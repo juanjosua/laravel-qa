@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
-Route::get('/home', [Controllers\HomeController::class, 'index'])->name('home');
-
-Route::resource('questions', Controllers\QuestionsController::class);
+Route::namespace('App\Http\Controllers')->group(function () {
+    Auth::routes();
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('questions', 'QuestionsController');
+});
