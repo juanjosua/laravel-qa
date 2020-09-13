@@ -18,7 +18,13 @@ class DatabaseSeeder extends Seeder
           $u->questions()
             ->saveMany(
               Models\Question::factory(rand(1, 5))->make()
-            );
+            )
+            ->each(function($q) {
+              $q->answers()
+                ->saveMany(
+                  Models\Answer::factory(rand(1, 5))->make()
+                );
+            });
         });
     }
 }
