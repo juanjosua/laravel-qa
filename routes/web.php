@@ -31,4 +31,5 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::delete('/questions/{question}/favorites', 'FavoritesController@destroy')->name('questions.unfavorite');
 
     Route::post('/questions/{question}/vote', 'VoteQuestionController'); //single action controller so no method specified
+    Route::post('/answers/{answer}/vote', 'VoteAnswerController');
 });
