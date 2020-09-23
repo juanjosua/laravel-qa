@@ -13,11 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::namespace('App\Http\Controllers')->group(function () {
+    Route::get('/', 'QuestionsController@index');
     Auth::routes();
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('questions', 'QuestionsController')->except('show');
