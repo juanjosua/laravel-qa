@@ -20,6 +20,9 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    //to make the model accessor included to the vue components
+    protected $appends = ['url', 'avatar'];
+
     /**
      * The attributes that should be hidden for arrays.
      *
